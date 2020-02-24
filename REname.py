@@ -90,26 +90,24 @@ class Ui_MainWindow(object):
         self.lineEdit_2.setText(self.qList2[index.row()])
 
     def yulan(self):
+        os.system("cls")
         path = self.lineEdit_3.text()
-        print("====START====")
         for file in os.listdir(path):
             res=re.sub(re.compile(self.lineEdit.text()),self.lineEdit_2.text(),file)
             if file!=res :
                 print("[OLD]："+file)
                 print("[NEW]："+res+"\n")
-        print("=====END=====")
         self.jilu()
 
     def tihuan(self):
+        os.system("cls")
         path = self.lineEdit_3.text()
-        print("====START====")
         for file in os.listdir(path):
             res=re.sub(re.compile(self.lineEdit.text()),self.lineEdit_2.text(),file)
             if file!=res :
                 os.rename(path+"\\"+file,path+"\\"+res)
                 print("[OLD]："+file)
                 print("[NEW]："+res+"\n")
-        print("====END====")
 
 if __name__ == "__main__":
     import sys

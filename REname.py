@@ -3,114 +3,141 @@
 import re
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QDate, QStringListModel
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QListView, QMessageBox
-
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QListView
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(779, 343)
+        MainWindow.resize(602, 367)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 0, 54, 20))
+        self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(10, 10, 581, 331))
+        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.labelChaZhao = QtWidgets.QLabel(self.verticalLayoutWidget_3)
+        self.labelChaZhao.setObjectName("labelChaZhao")
+        self.verticalLayout.addWidget(self.labelChaZhao)
+        self.lineEditChaZhao = QtWidgets.QLineEdit(self.verticalLayoutWidget_3)
+        self.lineEditChaZhao.setObjectName("lineEditChaZhao")
+        self.verticalLayout.addWidget(self.lineEditChaZhao)
+        self.listWidgetChaZhao = QtWidgets.QListWidget(self.verticalLayoutWidget_3)
+        self.listWidgetChaZhao.setObjectName("listWidgetChaZhao")
+        self.verticalLayout.addWidget(self.listWidgetChaZhao)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.labelTiHuan = QtWidgets.QLabel(self.verticalLayoutWidget_3)
+        self.labelTiHuan.setObjectName("labelTiHuan")
+        self.verticalLayout_2.addWidget(self.labelTiHuan)
+        self.lineEditTiHuan = QtWidgets.QLineEdit(self.verticalLayoutWidget_3)
+        self.lineEditTiHuan.setObjectName("lineEditTiHuan")
+        self.verticalLayout_2.addWidget(self.lineEditTiHuan)
+        self.listWidgetTiHuan = QtWidgets.QListWidget(self.verticalLayoutWidget_3)
+        self.listWidgetTiHuan.setObjectName("listWidgetTiHuan")
+        self.verticalLayout_2.addWidget(self.listWidgetTiHuan)
+        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label = QtWidgets.QLabel(self.verticalLayoutWidget_3)
         self.label.setObjectName("label")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(20, 30, 361, 20))
-        self.lineEdit.setObjectName("lineEdit")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(400, 0, 54, 20))
-        self.label_2.setObjectName("label_2")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(400, 30, 361, 20))
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(410, 280, 141, 41))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(600, 280, 151, 41))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(90, 290, 281, 20))
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(30, 290, 54, 20))
-        self.label_3.setObjectName("label_3")
-        self.listView = QtWidgets.QListView(self.centralwidget)
-        self.listView.setGeometry(QtCore.QRect(20, 60, 361, 211))
-        self.listView.setObjectName("listView")
-        self.listView_2 = QtWidgets.QListView(self.centralwidget)
-        self.listView_2.setGeometry(QtCore.QRect(400, 60, 361, 211))
-        self.listView_2.setObjectName("listView_2")
+        self.horizontalLayout_3.addWidget(self.label)
+        self.lineEditLuJing = QtWidgets.QLineEdit(self.verticalLayoutWidget_3)
+        self.lineEditLuJing.setObjectName("lineEditLuJing")
+        self.horizontalLayout_3.addWidget(self.lineEditLuJing)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.radioButtonWenJian = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
+        self.radioButtonWenJian.setObjectName("radioButtonWenJian")
+        self.horizontalLayout_2.addWidget(self.radioButtonWenJian)
+        self.radioButtonMuLu = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
+        self.radioButtonMuLu.setObjectName("radioButtonMuLu")
+        self.horizontalLayout_2.addWidget(self.radioButtonMuLu)
+        self.radioButtonQuanBu = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
+        self.radioButtonQuanBu.setObjectName("radioButtonQuanBu")
+        self.horizontalLayout_2.addWidget(self.radioButtonQuanBu)
+        self.pushButtonYuLan = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.pushButtonYuLan.setObjectName("pushButtonYuLan")
+        self.horizontalLayout_2.addWidget(self.pushButtonYuLan)
+        self.pushButtonTiHuan = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
+        self.pushButtonTiHuan.setObjectName("pushButtonTiHuan")
+        self.horizontalLayout_2.addWidget(self.pushButtonTiHuan)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.pushButton.clicked.connect(self.yulan)
+        self.lineEditLuJing.setText(os.getcwd())
+        self.listWidgetChaZhao.clicked.connect(lambda index: self.lineEditChaZhao.setText(self.listWidgetChaZhao.takeItem(index.row()).text()))
+        self.listWidgetTiHuan.clicked.connect(lambda index: self.lineEditTiHuan.setText(self.listWidgetTiHuan.takeItem(index.row()).text()))
 
-        self.pushButton_2.clicked.connect(self.tihuan)
+        self.pushButtonYuLan.clicked.connect(lambda: self.zhixing(0))
+        self.pushButtonTiHuan.clicked.connect(lambda: self.zhixing(1))
 
-        self.lineEdit_3.setText(os.getcwd())
-
-        self.listView.clicked.connect(self.CZ)
-
-        self.listView_2.clicked.connect(self.TH)
-
-        self.qList1 = []  # 添加的数组数据
-        self.qList2 = []  # 添加的数组数据
+        self.radioButtonWenJian.setChecked(1)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "正则文件名替换"))
-        self.label.setText(_translate("MainWindow", "查找"))
-        self.label_2.setText(_translate("MainWindow", "替换"))
-        self.pushButton.setText(_translate("MainWindow", "预览"))
-        self.pushButton_2.setText(_translate("MainWindow", "替换"))
-        self.label_3.setText(_translate("MainWindow", "路径名"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "REname"))
+        self.labelChaZhao.setText(_translate("MainWindow", "查找"))
+        self.labelTiHuan.setText(_translate("MainWindow", "替换"))
+        self.label.setText(_translate("MainWindow", "路径"))
+        self.radioButtonWenJian.setText(_translate("MainWindow", "文件替换"))
+        self.radioButtonMuLu.setText(_translate("MainWindow", "目录替换"))
+        self.radioButtonQuanBu.setText(_translate("MainWindow", "全部替换"))
+        self.pushButtonYuLan.setText(_translate("MainWindow", "预览"))
+        self.pushButtonTiHuan.setText(_translate("MainWindow", "替换"))
 
-    def jilu(self):
-        slm1 = QStringListModel()  # 创建model
-        if self.qList1.count(self.lineEdit.text())<=0:
-            self.qList1.append(self.lineEdit.text())
-        slm1.setStringList(self.qList1)  # 将数据设置到model
-        self.listView.setModel(slm1)  # 绑定 listView 和 model
-
-        slm2 = QStringListModel()  # 创建model
-        if self.qList2.count(self.lineEdit_2.text())<=0:
-            self.qList2.append(self.lineEdit_2.text())
-        slm2.setStringList(self.qList2)  # 将数据设置到model
-        self.listView_2.setModel(slm2)  # 绑定 listView_2 和 model
-
-    def CZ(self, index):
-        self.lineEdit.setText(self.qList1[index.row()])
-
-    def TH(self, index):
-        self.lineEdit_2.setText(self.qList2[index.row()])
-
-    def zhixing(self, bo):
+    def zhixing(self, status):
         os.system("cls")
-        path = self.lineEdit_3.text()
+        loopStatus = True
+        while loopStatus:
+            loopStatus = False
 
-        for root, dir, file in os.walk(path):
-            for name in file:
-                #print("FILE"+os.path.join(root,name))
-                res=re.sub(re.compile(self.lineEdit.text()),self.lineEdit_2.text(),name)
-                if name!=res :
-                    print(os.path.join(root,name))
-                    print(os.path.join(root,res+"\n"))
-                    if bo :
-                        os.rename(os.path.join(root,name),os.path.join(root,res))
-            # for name in dir:
-            #     print("DIR"+os.path.join(root,name))
-        self.jilu()
+            path = self.lineEditLuJing.text()
+            for root, dir, file in os.walk(path):
+                for name in file:
+                    #print("FILE"+os.path.join(root,name))
+                    res=re.sub(re.compile(self.lineEditChaZhao.text()),self.lineEditTiHuan.text(),name)
+                    if name!=res and (self.radioButtonWenJian.isChecked() or self.radioButtonQuanBu.isChecked()) :
+                        print(os.path.join(root,name))
+                        print(len(root.encode('gbk'))*" "+((name.find(self.lineEditChaZhao.text())+1)*" ")+"↓")
+                        print(os.path.join(root,res)+"\n\n")
+                        
+                        if status:
+                            os.rename(os.path.join(root,name),os.path.join(root,res))
+                            loopStatus = True
+                for name in dir:
+                    #print("DIR"+os.path.join(root,name))
+                    res=re.sub(re.compile(self.lineEditChaZhao.text()),self.lineEditTiHuan.text(),name)
+                    if name!=res and (self.radioButtonMuLu.isChecked() or self.radioButtonQuanBu.isChecked()) :
+                        print(os.path.join(root,name))
+                        print(len(root.encode('gbk'))*" "+((name.find(self.lineEditChaZhao.text())+1)*" ")+"↓")
+                        print(os.path.join(root,res)+"\n\n")
+                        
+                        if status :
+                            os.rename(os.path.join(root,name),os.path.join(root,res))
+                            loopStatus = True
+        
+        if not self.listWidgetChaZhao.findItems(self.lineEditChaZhao.text(), Qt.MatchFlag.MatchExactly):
+            self.listWidgetChaZhao.addItem(self.lineEditChaZhao.text())
+        if not self.listWidgetTiHuan.findItems(self.lineEditTiHuan.text(), Qt.MatchFlag.MatchExactly):
+            self.listWidgetTiHuan.addItem(self.lineEditTiHuan.text())
 
-    def yulan(self):
-        self.zhixing(False)
-
-    def tihuan(self):
-        self.zhixing(True)
+        self.statusbar.showMessage("执行结束",0)
 
 if __name__ == "__main__":
     import sys

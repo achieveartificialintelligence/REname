@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>602</width>
-    <height>372</height>
+    <height>367</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -63,7 +63,42 @@
       </layout>
      </item>
      <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>路径</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditLuJing"/>
+       </item>
+      </layout>
+     </item>
+     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QRadioButton" name="radioButtonWenJian">
+         <property name="text">
+          <string>文件替换</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButtonMuLu">
+         <property name="text">
+          <string>目录替换</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButtonQuanBu">
+         <property name="text">
+          <string>全部替换</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QPushButton" name="pushButtonYuLan">
          <property name="text">
@@ -72,23 +107,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButtonQuanTiHuan">
+        <widget class="QPushButton" name="pushButtonTiHuan">
          <property name="text">
-          <string>全部替换</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButtonMuLuTiHuan">
-         <property name="text">
-          <string>目录替换</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButtonWenJianTiHuan">
-         <property name="text">
-          <string>文件替换</string>
+          <string>替换</string>
          </property>
         </widget>
        </item>

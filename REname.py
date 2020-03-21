@@ -89,25 +89,28 @@ class Ui_MainWindow(object):
     def TH(self, index):
         self.lineEdit_2.setText(self.qList2[index.row()])
 
-    def yulan(self):
+    def zhixing(self, bo):
         os.system("cls")
         path = self.lineEdit_3.text()
-        for file in os.listdir(path):
-            res=re.sub(re.compile(self.lineEdit.text()),self.lineEdit_2.text(),file)
-            if file!=res :
-                print("[OLD]："+file)
-                print("[NEW]："+res+"\n")
+
+        for root, dir, file in os.walk(path):
+            for name in file:
+                #print("FILE"+os.path.join(root,name))
+                res=re.sub(re.compile(self.lineEdit.text()),self.lineEdit_2.text(),name)
+                if name!=res :
+                    print(os.path.join(root,name))
+                    print(os.path.join(root,res+"\n"))
+                    if bo :
+                        os.rename(os.path.join(root,name),os.path.join(root,res))
+            # for name in dir:
+            #     print("DIR"+os.path.join(root,name))
         self.jilu()
 
+    def yulan(self):
+        self.zhixing(False)
+
     def tihuan(self):
-        os.system("cls")
-        path = self.lineEdit_3.text()
-        for file in os.listdir(path):
-            res=re.sub(re.compile(self.lineEdit.text()),self.lineEdit_2.text(),file)
-            if file!=res :
-                os.rename(path+"\\"+file,path+"\\"+res)
-                print("[OLD]："+file)
-                print("[NEW]："+res+"\n")
+        self.zhixing(True)
 
 if __name__ == "__main__":
     import sys

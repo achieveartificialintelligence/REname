@@ -3,8 +3,6 @@
 import re
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QListView
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -118,8 +116,13 @@ class Ui_MainWindow(object):
                         print(os.path.join(root,res)+"\n\n")
                         
                         if status:
-                            os.rename(os.path.join(root,name),os.path.join(root,res))
-                            loopStatus = True
+                            try:
+                                os.rename(os.path.join(root,name),os.path.join(root,res))
+                                loopStatus = True
+                                self.statusbar.showMessage("执行结束",0)
+                            except:
+                                self.statusbar.showMessage("文件重命名存在错误，请检查后重试",0)
+                                break
                 for name in dir:
                     #print("DIR"+os.path.join(root,name))
                     res=re.sub(re.compile(self.lineEditChaZhao.text()),self.lineEditTiHuan.text(),name)
@@ -129,15 +132,18 @@ class Ui_MainWindow(object):
                         print(os.path.join(root,res)+"\n\n")
                         
                         if status :
-                            os.rename(os.path.join(root,name),os.path.join(root,res))
-                            loopStatus = True
+                            try:
+                                os.rename(os.path.join(root,name),os.path.join(root,res))
+                                loopStatus = True
+                                self.statusbar.showMessage("执行结束",0)
+                            except:
+                                self.statusbar.showMessage("目录重命名存在错误，请检查后重试",0)
+                                break
         
-        if not self.listWidgetChaZhao.findItems(self.lineEditChaZhao.text(), Qt.MatchFlag.MatchExactly):
+        if not self.listWidgetChaZhao.findItems(self.lineEditChaZhao.text(), QtCore.Qt.MatchFlag.MatchExactly):
             self.listWidgetChaZhao.addItem(self.lineEditChaZhao.text())
-        if not self.listWidgetTiHuan.findItems(self.lineEditTiHuan.text(), Qt.MatchFlag.MatchExactly):
+        if not self.listWidgetTiHuan.findItems(self.lineEditTiHuan.text(), QtCore.Qt.MatchFlag.MatchExactly):
             self.listWidgetTiHuan.addItem(self.lineEditTiHuan.text())
-
-        self.statusbar.showMessage("执行结束",0)
 
 if __name__ == "__main__":
     import sys

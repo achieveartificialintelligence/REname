@@ -125,7 +125,8 @@ class Ui_MainWindow(object):
                     if name!=res and (self.radioButtonWenJian.isChecked() or self.radioButtonQuanBu.isChecked()) :
                         print(os.path.join(root,name))
                         #实现↓的位置
-                        print(len(root.encode('gbk'))*" "+((name.find(self.lineEditChaZhao.text())+1)*" ")+"↓")
+                        byts = self.lineEditChaZhao.text().encode('gbk')
+                        print(len(root.encode('gbk'))*" "+'\\'+(name.encode('gbk').find(byts)*" ")+"*"*len(byts))
                         print(os.path.join(root,res)+"\n\n")
                         
                         if status:
@@ -143,7 +144,8 @@ class Ui_MainWindow(object):
                     res=re.sub(re.compile(self.lineEditChaZhao.text()),self.lineEditTiHuan.text(),name)
                     if name!=res and (self.radioButtonMuLu.isChecked() or self.radioButtonQuanBu.isChecked()) :
                         print(os.path.join(root,name))
-                        print(len(root.encode('gbk'))*" "+((name.find(self.lineEditChaZhao.text())+1)*" ")+"↓")
+                        byts = self.lineEditChaZhao.text().encode('gbk')
+                        print(len(root.encode('gbk'))*" "+'\\'+(name.encode('gbk').find(byts)*" ")+"*"*len(byts))
                         print(os.path.join(root,res)+"\n\n")
                         
                         if status :
